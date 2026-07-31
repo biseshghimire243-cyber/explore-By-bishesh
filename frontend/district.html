@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">District Details | Explore Nepal</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/district.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-mountain-sun"></i> Explore Nepal
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="index.html#districts" class="active"><i class="fa-solid fa-map-location-dot"></i> Districts</a></li>
+                <li><a href="index.html#about"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                <li><a href="index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main id="mainContent">
+        <!-- Back Navigation & Breadcrumb -->
+        <div class="breadcrumb-container">
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+
+        <!-- Dynamic District Hero Section -->
+        <section class="district-hero" id="districtHero">
+            <div class="hero-overlay"></div>
+            <div class="hero-details">
+                <h1 id="districtName">Loading...</h1>
+                <p id="districtTagline" class="tagline"></p>
+            </div>
+        </section>
+
+        <!-- District Overview & Information Grid -->
+        <section class="district-info-section">
+            <div class="info-card">
+                <h3><i class="fa-solid fa-compass"></i> Overview</h3>
+                <p id="districtDescription">Loading district information...</p>
+            </div>
+
+            <div class="info-highlights">
+                <div class="highlight-item">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <div>
+                        <h4>Best Time to Visit</h4>
+                        <p id="bestTime">N/A</p>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <i class="fa-solid fa-cloud-sun-rain"></i>
+                    <div>
+                        <h4>Climate</h4>
+                        <p id="climate">N/A</p>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <i class="fa-solid fa-route"></i>
+                    <div>
+                        <h4>Known For</h4>
+                        <p id="knownFor">N/A</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Famous Attractions Section -->
+        <section class="attractions-section">
+            <div class="section-title">
+                <h2>Popular Places to Visit</h2>
+                <p>Must-see attractions in this district</p>
+            </div>
+
+            <div class="attractions-grid" id="attractionsContainer">
+                <!-- Dynamically populated attraction cards -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3><i class="fa-solid fa-mountain-sun"></i> Explore Nepal</h3>
+                <p>Your ultimate guide to discovering districts and tourist destinations across Nepal.</p>
+            </div>
+            
+            <div class="footer-socials">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Explore Nepal. Built with passion for exploration.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/district.js"></script>
+</body>
+</html>
