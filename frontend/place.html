@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Tourist Attraction | Explore Nepal</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/place.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-mountain-sun"></i> Explore Nepal
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="index.html#districts"><i class="fa-solid fa-map-location-dot"></i> Districts</a></li>
+                <li><a href="index.html#places" class="active"><i class="fa-solid fa-compass"></i> Tourist Places</a></li>
+                <li><a href="index.html#about"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                <li><a href="index.html#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main id="mainContent">
+        <!-- Navigation Breadcrumbs -->
+        <div class="breadcrumb-container">
+            <a href="javascript:history.back()" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i> Go Back
+            </a>
+        </div>
+
+        <!-- Place Banner Section -->
+        <section class="place-hero" id="placeHero">
+            <div class="hero-overlay"></div>
+            <div class="place-hero-details">
+                <span class="district-badge" id="placeDistrict"><i class="fa-solid fa-location-dot"></i> Loading...</span>
+                <h1 id="placeName">Loading Attraction...</h1>
+                <p id="placeCategory" class="category-tag"><i class="fa-solid fa-tags"></i> </p>
+            </div>
+        </section>
+
+        <!-- Place Content Grid -->
+        <section class="place-details-grid">
+            <!-- Left Column: Main Description & Highlights -->
+            <div class="place-main-info">
+                <div class="info-card">
+                    <h2><i class="fa-solid fa-circle-info"></i> About the Attraction</h2>
+                    <p id="placeDescription">Loading description...</p>
+                </div>
+
+                <div class="info-card">
+                    <h2><i class="fa-solid fa-star"></i> Major Highlights</h2>
+                    <ul class="highlights-list" id="highlightsList">
+                        <!-- Populated by JS -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Column: Practical Travel Sidebar -->
+            <aside class="place-sidebar">
+                <div class="sidebar-card">
+                    <h3><i class="fa-solid fa-circle-exclamation"></i> Travel Essentials</h3>
+                    
+                    <div class="sidebar-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <strong>Opening Hours</strong>
+                            <p id="openingHours">N/A</p>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-item">
+                        <i class="fa-solid fa-ticket"></i>
+                        <div>
+                            <strong>Entry Fee</strong>
+                            <p id="entryFee">N/A</p>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-item">
+                        <i class="fa-solid fa-person-hiking"></i>
+                        <div>
+                            <strong>Recommended Duration</strong>
+                            <p id="recommendedDuration">N/A</p>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-item">
+                        <i class="fa-solid fa-bus"></i>
+                        <div>
+                            <strong>How to Get There</strong>
+                            <p id="howToReach">N/A</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <!-- Nearby Recommendations -->
+        <section class="nearby-section">
+            <div class="section-title">
+                <h2>Nearby Places to Explore</h2>
+                <p>Other popular spots in the same region</p>
+            </div>
+
+            <div class="nearby-grid" id="nearbyContainer">
+                <!-- Dynamically filled by JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3><i class="fa-solid fa-mountain-sun"></i> Explore Nepal</h3>
+                <p>Your ultimate guide to discovering districts and tourist destinations across Nepal.</p>
+            </div>
+            
+            <div class="footer-socials">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Explore Nepal. Built with passion for exploration.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/place.js"></script>
+</body>
+</html>
