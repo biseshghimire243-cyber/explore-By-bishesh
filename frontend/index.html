@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Nepal</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            Explore Nepal
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Districts</a></li>
+            <li><a href="#">Tourist Places</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Discover the Beauty of Nepal</h1>
+
+            <p>
+                Search any district and explore its famous tourist destinations.
+            </p>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchBox"
+                    placeholder="Search a district..."
+                >
+
+                <button id="searchBtn">Search</button>
+            </div>
+
+            <div id="suggestions"></div>
+
+        </div>
+
+    </section>
+
+    <!-- Popular Districts -->
+    <section class="district-section">
+
+        <h2>Popular Districts</h2>
+
+        <div id="districtContainer"></div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Explore Nepal | Discover the beauty of Nepal.
+        </p>
+
+    </footer>
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>
