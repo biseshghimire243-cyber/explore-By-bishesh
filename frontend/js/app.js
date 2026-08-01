@@ -8,7 +8,9 @@ const suggestionsBox = document.getElementById("suggestions");
 const mobileMenuToggle = document.getElementById("mobile-menu");
 const navLinks = document.querySelector(".nav-links");
 
-// Store districts from database
+// ==========================================
+// DISTRICT DATA
+// ==========================================
 let districtsData = [];
 
 // ==========================================
@@ -16,6 +18,7 @@ let districtsData = [];
 // ==========================================
 async function loadDistricts() {
     try {
+
         const response = await fetch("/districts");
         const result = await response.json();
 
@@ -28,32 +31,36 @@ async function loadDistricts() {
             tagline: district.province
         }));
 
-        renderDistricts(districtsData);
+        districtContainer.innerHTML = "";
 
     } catch (error) {
-        console.log("Error loading districts:", error);
+
+        console.error("Error loading districts:", error);
+
     }
 }
 
 // ==========================================
-// RENDER DISTRICT CARDS
+// DISPLAY DISTRICT CARDS
 // ==========================================
-function renderDistricts(items) {
+function renderDistricts(districts) {
 
     districtContainer.innerHTML = "";
 
-    if (items.length === 0) {
+    if (districts.length === 0) {
 
         districtContainer.innerHTML = `
-            <div style="grid-column:1/-1;text-align:center;padding:40px;">
-                <h2>No district found.</h2>
+            <div class="no-result">
+                <h2>No District Found</h2>
+                <p>Please search another district.</p>
             </div>
         `;
 
         return;
+
     }
 
-    items.forEach(district => {
+    districts.forEach(district => {
 
         districtContainer.innerHTML += `
             <div class="district-card">
@@ -68,7 +75,7 @@ function renderDistricts(items) {
 
                     <p>${district.description}</p>
 
-                    <button onclick="openDistrict(${district.id})">
+                    <button class="explore-btn" onclick="openDistrict(${district.id})">
                         Explore
                     </button>
 
@@ -82,16 +89,28 @@ function renderDistricts(items) {
 }
 
 // ==========================================
-// SEARCH
+// SEARCH FUNCTION
 // ==========================================
 function performSearch() {
 
     const query = searchBox.value.trim().toLowerCase();
 
+    if (query === "") {
+
+        districtContainer.innerHTML = "";
+        suggestionsBox.innerHTML = "";
+        return;
+
+    }
+
     const filtered = districtsData.filter(district =>
+
         district.name.toLowerCase().includes(query) ||
+
         district.province.toLowerCase().includes(query) ||
+
         district.description.toLowerCase().includes(query)
+
     );
 
     renderDistricts(filtered);
@@ -100,11 +119,15 @@ function performSearch() {
 
 }
 
-// Search Button
+// ==========================================
+// SEARCH BUTTON
+// ==========================================
 searchBtn.addEventListener("click", performSearch);
 
-// Enter Key
-searchBox.addEventListener("keypress", (e) => {
+// ==========================================
+// ENTER KEY SEARCH
+// ==========================================
+searchBox.addEventListener("keydown", function (e) {
 
     if (e.key === "Enter") {
 
@@ -117,13 +140,18 @@ searchBox.addEventListener("keypress", (e) => {
 // ==========================================
 // LIVE SEARCH SUGGESTIONS
 // ==========================================
-searchBox.addEventListener("input", () => {
+searchBox.addEventListener("input", function () {
 
     const value = searchBox.value.trim().toLowerCase();
 
     suggestionsBox.innerHTML = "";
 
-    if (value === "") return;
+    if (value === "") {
+
+        districtContainer.innerHTML = "";
+        return;
+
+    }
 
     const matches = districtsData.filter(district =>
         district.name.toLowerCase().includes(value)
@@ -131,21 +159,23 @@ searchBox.addEventListener("input", () => {
 
     matches.forEach(match => {
 
-        const div = document.createElement("div");
+        const item = document.createElement("div");
 
-        div.textContent = match.name;
+        item.className = "suggestion-item";
 
-        div.classList.add("suggestion-item");
+        item.textContent = match.name;
 
-        div.addEventListener("click", () => {
+        item.addEventListener("click", () => {
 
             searchBox.value = match.name;
+
+            suggestionsBox.innerHTML = "";
 
             performSearch();
 
         });
 
-        suggestionsBox.appendChild(div);
+        suggestionsBox.appendChild(item);
 
     });
 
@@ -154,9 +184,12 @@ searchBox.addEventListener("input", () => {
 // ==========================================
 // CLOSE SUGGESTIONS
 // ==========================================
-document.addEventListener("click", (e) => {
+document.addEventListener("click", function (e) {
 
-    if (!searchBox.contains(e.target) && !suggestionsBox.contains(e.target)) {
+    if (
+        !searchBox.contains(e.target) &&
+        !suggestionsBox.contains(e.target)
+    ) {
 
         suggestionsBox.innerHTML = "";
 
@@ -187,6 +220,6 @@ if (mobileMenuToggle) {
 }
 
 // ==========================================
-// START
+// INITIALIZE
 // ==========================================
 loadDistricts();
