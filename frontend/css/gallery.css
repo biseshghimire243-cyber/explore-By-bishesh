@@ -392,3 +392,75 @@ font-size:30px;
 }
 
 }
+
+
+
+
+
+/* Smaller Thumbnail height for grid cards */
+.card img {
+  width: 100%;
+  height: 140px; /* Reduced from 200px to keep images small */
+  object-fit: cover;
+}
+
+/* Enhanced description text inside cards */
+.card-desc {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-top: 6px;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Displays first 3 lines on card preview */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+/* Lightbox Modal Layout Upgrades */
+.lightbox-content {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  background: #1e293b;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.lightbox-img-wrapper {
+  width: 100%;
+  max-height: 280px; /* Keeps modal image compact */
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.lightbox-img-wrapper img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.lightbox-caption {
+  padding: 1.75rem;
+  text-align: left;
+}
+
+.lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.lightbox-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
