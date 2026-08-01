@@ -165,3 +165,51 @@ lightbox.onclick = (e) => {
 
 // Initial render
 display(images);
+
+
+
+// Show nothing when the page loads
+gallery.innerHTML = "";
+
+function searchDistrict() {
+
+    const value = search.value.trim().toLowerCase();
+
+    gallery.innerHTML = "";
+
+    if (value === "") {
+        return;
+    }
+
+    const result = images.filter(item =>
+        item.district.toLowerCase().includes(value)
+    );
+
+    if (result.length === 0) {
+
+        gallery.innerHTML = `
+            <h2 style="text-align:center;width:100%;margin-top:40px;">
+                No image found
+            </h2>
+        `;
+
+        return;
+    }
+
+    result.forEach(item => {
+
+        gallery.innerHTML += `
+            <div class="card">
+
+                <img src="${item.image}" alt="${item.district}">
+
+                <h3>${item.district}</h3>
+
+            </div>
+        `;
+
+    });
+
+}
+
+search.addEventListener("keyup", searchDistrict);
