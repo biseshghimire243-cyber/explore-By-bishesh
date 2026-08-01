@@ -40,64 +40,212 @@
     </header>
 
     <main id="mainContent">
-        <!-- Back Navigation & Breadcrumb -->
-        <div class="breadcrumb-container">
-            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+
+    <div class="breadcrumb-container">
+        <a href="index.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <!-- HERO -->
+    <section class="district-hero" id="districtHero">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-details">
+
+            <h1 id="districtName">Loading...</h1>
+
+            <p id="districtTagline"></p>
+
+            <div class="hero-rating">
+
+                ⭐⭐⭐⭐⭐
+
+                <span id="provinceName"></span>
+
+            </div>
+
         </div>
 
-        <!-- Dynamic District Hero Section -->
-        <section class="district-hero" id="districtHero">
-            <div class="hero-overlay"></div>
-            <div class="hero-details">
-                <h1 id="districtName">Loading...</h1>
-                <p id="districtTagline" class="tagline"></p>
-            </div>
-        </section>
+    </section>
 
-        <!-- District Overview & Information Grid -->
-        <section class="district-info-section">
-            <div class="info-card">
-                <h3><i class="fa-solid fa-compass"></i> Overview</h3>
-                <p id="districtDescription">Loading district information...</p>
-            </div>
+    <!-- QUICK FACTS -->
 
-            <div class="info-highlights">
-                <div class="highlight-item">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    <div>
-                        <h4>Best Time to Visit</h4>
-                        <p id="bestTime">N/A</p>
-                    </div>
+    <section class="facts-section">
+
+        <div class="fact-card">
+
+            <i class="fa-solid fa-calendar-days"></i>
+
+            <h3>Best Time</h3>
+
+            <p id="bestTime"></p>
+
+        </div>
+
+        <div class="fact-card">
+
+            <i class="fa-solid fa-cloud-sun"></i>
+
+            <h3>Climate</h3>
+
+            <p id="climate"></p>
+
+        </div>
+
+        <div class="fact-card">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            <h3>Province</h3>
+
+            <p id="province"></p>
+
+        </div>
+
+        <div class="fact-card">
+
+            <i class="fa-solid fa-mountain"></i>
+
+            <h3>Known For</h3>
+
+            <p id="knownFor"></p>
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="about-section">
+
+        <h2>About District</h2>
+
+        <p id="districtDescription"></p>
+
+    </section>
+
+    <!-- PHOTO GALLERY -->
+
+    <section class="photo-section">
+
+        <h2>Photo Gallery</h2>
+
+        <div class="photo-grid">
+
+            <img id="gallery1" src="./images/josh-hild-U3Lkg9DDowI-unsplash.jpg" alt="Mountain">
+
+<img id="gallery2"
+src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+alt="Lush Forests and Rivers of Nepal">
+
+<img id="gallery3"
+src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=80"
+alt="Scenic Himalayan Landscape of Nepal">
+        </div>
+
+    </section>
+
+    <!-- TOURIST PLACES -->
+    <section class="attractions-section">
+        <h2>Popular Tourist Places</h2>
+        <div class="attractions-grid" id="attractionsContainer">
+            
+            <div class="attraction-card">
+                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80" alt="Phew Lake, Pokhara">
+                <div class="attraction-card-content">
+                    <h3>Phewa Lake & Barahi Temple</h3>
+                    <p>A tranquil freshwater lake offering scenic boat rides and views of the Annapurna mountain range.</p>
                 </div>
-                <div class="highlight-item">
-                    <i class="fa-solid fa-cloud-sun-rain"></i>
-                    <div>
-                        <h4>Climate</h4>
-                        <p id="climate">N/A</p>
-                    </div>
-                </div>
-                <div class="highlight-item">
-                    <i class="fa-solid fa-route"></i>
-                    <div>
-                        <h4>Known For</h4>
-                        <p id="knownFor">N/A</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Famous Attractions Section -->
-        <section class="attractions-section">
-            <div class="section-title">
-                <h2>Popular Places to Visit</h2>
-                <p>Must-see attractions in this district</p>
             </div>
 
-            <div class="attractions-grid" id="attractionsContainer">
-                <!-- Dynamically populated attraction cards -->
+            <div class="attraction-card">
+                <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=600&q=80" alt="Sarangkot Viewpoint">
+                <div class="attraction-card-content">
+                    <h3>Sarangkot Viewpoint</h3>
+                    <p>Famous for breathtaking sunrise and sunset views over the Himalayas, as well as paragliding spots.</p>
+                </div>
             </div>
-        </section>
-    </main>
+
+            <div class="attraction-card">
+                <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=600&q=80" alt="World Peace Pagoda">
+                <div class="attraction-card-content">
+                    <h3>World Peace Pagoda</h3>
+                    <p>A serene Buddhist monument situated on a hilltop overlooking Pokhara valley and Phewa Lake.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOODS -->
+    <section class="food-section">
+        <h2>Famous Foods</h2>
+        <div class="food-grid">
+
+            <div class="food-card">
+                <div class="food-icon">🥟</div>
+                <h3>Steamed & Fried Momos</h3>
+                <p id="foods">Delicious Nepalese dumplings filled with spiced vegetables or minced meat, served with spicy tomato chutney.</p>
+            </div>
+
+            <div class="food-card">
+                <div class="food-icon">🍛</div>
+                <h3>Traditional Dal Bhat Tarkari</h3>
+                <p>The staple Nepalese meal consisting of lentil soup, steamed rice, vegetable curry, and spicy pickles.</p>
+            </div>
+
+            <div class="food-card">
+                <div class="food-icon">🍩</div>
+                <h3>Sel Roti & Local Tea</h3>
+                <p>Crispy, sweet ring-shaped rice bread traditionally prepared during festivals, best enjoyed with fresh milk tea.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FESTIVALS -->
+
+    <section class="festival-section">
+
+        <h2>Culture & Festivals</h2>
+
+        <p id="festival"></p>
+
+    </section>
+
+    <!-- TRAVEL -->
+
+    <section class="travel-section">
+
+        <h2>Travel Tips</h2>
+
+        <ul>
+
+            <li>✔ Respect local culture</li>
+
+            <li>✔ Carry drinking water</li>
+
+            <li>✔ Visit during the best season</li>
+
+            <li>✔ Hire a local guide if trekking</li>
+
+        </ul>
+
+    </section>
+
+    <!-- GOOGLE MAP -->
+
+    <section class="map-section">
+
+        <h2>District Location</h2>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d456601.28948615154!2d87.13498115584657!3d26.610113103085787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6378445acc51%3A0x6ef846df97fb7d2c!2sMorang!5e0!3m2!1sen!2snp!4v1785599230306!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+    </section>
+
+</main>
 
     <!-- Footer -->
     <footer>
