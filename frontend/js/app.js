@@ -14,9 +14,10 @@ const navLinks = document.querySelector(".nav-links");
 let districtsData = [];
 
 // ==========================================
-// LOAD DISTRICTS FROM DATABASE
+// LOAD DISTRICTS
 // ==========================================
 async function loadDistricts() {
+
     try {
 
         const response = await fetch("/districts");
@@ -35,24 +36,25 @@ async function loadDistricts() {
 
     } catch (error) {
 
-        console.error("Error loading districts:", error);
+        console.error(error);
 
     }
+
 }
 
 // ==========================================
-// DISPLAY DISTRICT CARDS
+// DISPLAY DISTRICTS
 // ==========================================
-function renderDistricts(districts) {
+function renderDistricts(data) {
 
     districtContainer.innerHTML = "";
 
-    if (districts.length === 0) {
+    if (data.length === 0) {
 
         districtContainer.innerHTML = `
             <div class="no-result">
                 <h2>No District Found</h2>
-                <p>Please search another district.</p>
+                <p>Please try another district.</p>
             </div>
         `;
 
@@ -60,9 +62,10 @@ function renderDistricts(districts) {
 
     }
 
-    districts.forEach(district => {
+    data.forEach(district => {
 
         districtContainer.innerHTML += `
+
             <div class="district-card">
 
                 <img src="${district.image}" alt="${district.name}">
@@ -71,7 +74,7 @@ function renderDistricts(districts) {
 
                     <h3>${district.name}</h3>
 
-                    <p><strong>${district.tagline}</strong></p>
+                    <p><strong>${district.province}</strong></p>
 
                     <p>${district.description}</p>
 
@@ -82,6 +85,7 @@ function renderDistricts(districts) {
                 </div>
 
             </div>
+
         `;
 
     });
@@ -89,33 +93,39 @@ function renderDistricts(districts) {
 }
 
 // ==========================================
-// SEARCH FUNCTION
+// SEARCH
 // ==========================================
 function performSearch() {
 
     const query = searchBox.value.trim().toLowerCase();
 
+    suggestionsBox.innerHTML = "";
+
     if (query === "") {
 
         districtContainer.innerHTML = "";
-        suggestionsBox.innerHTML = "";
         return;
 
     }
 
-    const filtered = districtsData.filter(district =>
+    const exactMatch = districtsData.find(d =>
+        d.name.toLowerCase() === query
+    );
 
-        district.name.toLowerCase().includes(query) ||
+    if (exactMatch) {
 
-        district.province.toLowerCase().includes(query) ||
+        openDistrict(exactMatch.id);
+        return;
 
-        district.description.toLowerCase().includes(query)
+    }
 
+    const filtered = districtsData.filter(d =>
+        d.name.toLowerCase().includes(query) ||
+        d.province.toLowerCase().includes(query) ||
+        d.description.toLowerCase().includes(query)
     );
 
     renderDistricts(filtered);
-
-    suggestionsBox.innerHTML = "";
 
 }
 
@@ -125,9 +135,9 @@ function performSearch() {
 searchBtn.addEventListener("click", performSearch);
 
 // ==========================================
-// ENTER KEY SEARCH
+// ENTER KEY
 // ==========================================
-searchBox.addEventListener("keydown", function (e) {
+searchBox.addEventListener("keydown", (e) => {
 
     if (e.key === "Enter") {
 
@@ -138,44 +148,51 @@ searchBox.addEventListener("keydown", function (e) {
 });
 
 // ==========================================
-// LIVE SEARCH SUGGESTIONS
+// LIVE SUGGESTIONS
 // ==========================================
-searchBox.addEventListener("input", function () {
+searchBox.addEventListener("input", () => {
 
     const value = searchBox.value.trim().toLowerCase();
 
     suggestionsBox.innerHTML = "";
+    districtContainer.innerHTML = "";
 
-    if (value === "") {
-
-        districtContainer.innerHTML = "";
-        return;
-
-    }
+    if (value === "") return;
 
     const matches = districtsData.filter(district =>
         district.name.toLowerCase().includes(value)
     );
 
+    if (matches.length === 0) {
+
+        suggestionsBox.innerHTML = `
+            <div class="suggestion-item">
+                No District Found
+            </div>
+        `;
+
+        return;
+
+    }
+
     matches.forEach(match => {
 
-        const item = document.createElement("div");
+        const div = document.createElement("div");
 
-        item.className = "suggestion-item";
+        div.className = "suggestion-item";
 
-        item.textContent = match.name;
+        div.innerHTML = `
+            <i class="fa-solid fa-location-dot"></i>
+            <span>${match.name}</span>
+        `;
 
-        item.addEventListener("click", () => {
+        div.addEventListener("click", () => {
 
-            searchBox.value = match.name;
-
-            suggestionsBox.innerHTML = "";
-
-            performSearch();
+            openDistrict(match.id);
 
         });
 
-        suggestionsBox.appendChild(item);
+        suggestionsBox.appendChild(div);
 
     });
 
@@ -184,7 +201,7 @@ searchBox.addEventListener("input", function () {
 // ==========================================
 // CLOSE SUGGESTIONS
 // ==========================================
-document.addEventListener("click", function (e) {
+document.addEventListener("click", (e) => {
 
     if (
         !searchBox.contains(e.target) &&
@@ -198,7 +215,7 @@ document.addEventListener("click", function (e) {
 });
 
 // ==========================================
-// OPEN DISTRICT PAGE
+// OPEN DISTRICT
 // ==========================================
 function openDistrict(id) {
 
@@ -220,6 +237,6 @@ if (mobileMenuToggle) {
 }
 
 // ==========================================
-// INITIALIZE
+// START
 // ==========================================
 loadDistricts();
