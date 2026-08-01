@@ -17,24 +17,109 @@
 
 <body>
 
-    <header>
+    <!-- ================= HERO ================= -->
 
-        <h1>Explore Nepal Gallery</h1>
+    <section class="hero">
 
-        <p>Discover Nepal Through Beautiful Pictures</p>
+        <div class="hero-content">
 
-    </header>
+            <h1>
+                <i class="fa-solid fa-camera-retro"></i>
+                Explore Nepal Gallery
+            </h1>
 
-    <div class="search-box">
+            <p>
+                Discover breathtaking landscapes, mountains,
+                temples and hidden gems from every district of Nepal.
+            </p>
 
-        <input
-            type="text"
-            id="search"
-            placeholder="Search District...">
+            <div class="search-box">
 
-    </div>
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="Search any district...">
+
+                <button id="searchBtn">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats">
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-map-location-dot"></i>
+
+            <h2>77</h2>
+
+            <p>Districts</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-mountain"></i>
+
+            <h2>100+</h2>
+
+            <p>Tourist Places</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-earth-asia"></i>
+
+            <h2>7</h2>
+
+            <p>Provinces</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-camera"></i>
+
+            <h2>∞</h2>
+
+            <p>Memories</p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= EMPTY MESSAGE ================= -->
+
+    <section id="welcome">
+
+        <i class="fa-solid fa-image"></i>
+
+        <h2>Search to Discover Nepal</h2>
+
+        <p>
+
+            Type any district name above to view its beautiful
+            scenery and tourist attractions.
+
+        </p>
+
+    </section>
+
+    <!-- ================= GALLERY ================= -->
 
     <div id="gallery" class="gallery"></div>
+
+    <!-- ================= LIGHTBOX ================= -->
 
     <div id="lightbox">
 
@@ -45,6 +130,26 @@
         <h2 id="title"></h2>
 
     </div>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>🇳🇵 Explore Nepal</h3>
+
+        <p>
+
+            Discover the beauty of all 77 districts of Nepal.
+
+        </p>
+
+        <p>
+
+            © 2026 Explore Nepal | Developed by Bishesh
+
+        </p>
+
+    </footer>
 
     <script src="js/gallery.js"></script>
 
