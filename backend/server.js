@@ -59,6 +59,39 @@ app.get("/districts", (req, res) => {
 // Start Server
 const PORT = process.env.PORT || 3000;
 
+
+app.get("/district/:id", (req, res) => {
+
+    const sql = "SELECT * FROM districts WHERE id=?";
+
+    db.query(sql,[req.params.id],(err,result)=>{
+
+        if(err){
+            return res.status(500).json(err);
+        }
+
+        res.json(result[0]);
+
+    });
+
+});
+
+app.get("/places/:id",(req,res)=>{
+
+    const sql="SELECT * FROM tourist_places WHERE district_id=?";
+
+    db.query(sql,[req.params.id],(err,result)=>{
+
+        if(err){
+            return res.status(500).json(err);
+        }
+
+        res.json(result);
+
+    });
+
+});
+
 app.listen(PORT, () => {
     console.log(`🚀 Server is running at http://localhost:${PORT}`);
 });
