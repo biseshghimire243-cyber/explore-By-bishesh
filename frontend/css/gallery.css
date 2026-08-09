@@ -464,3 +464,505 @@ font-size:30px;
   line-height: 1.6;
   color: #cbd5e1;
 }
+
+/* ==========================================
+   DISCOVER MORE NEPAL
+========================================== */
+
+.gallery-adventure {
+    position: relative;
+
+    margin-top: 80px;
+
+    padding: 100px 6%;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071d2b,
+            #0b3d4f,
+            #123d4a
+        );
+
+    color: white;
+}
+
+
+/* Animated background */
+
+.gallery-adventure::before,
+.gallery-adventure::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    opacity: 0.25;
+
+    animation: floatingGlow 7s ease-in-out infinite alternate;
+}
+
+.gallery-adventure::before {
+    width: 300px;
+    height: 300px;
+
+    background: #3caea3;
+
+    top: -100px;
+    left: -100px;
+}
+
+.gallery-adventure::after {
+    width: 350px;
+    height: 350px;
+
+    background: #f6bd60;
+
+    bottom: -150px;
+    right: -100px;
+
+    animation-delay: 2s;
+}
+
+@keyframes floatingGlow {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(50px, 30px);
+    }
+
+}
+
+
+/* CONTENT */
+
+.adventure-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+
+.adventure-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 17px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.12);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    font-size: 0.75rem;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 700;
+}
+
+
+.adventure-content > h2 {
+    font-size: 3rem;
+
+    margin: 18px 0 12px;
+}
+
+
+.adventure-content > p {
+    max-width: 650px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    opacity: 0.8;
+}
+
+
+/* ==========================================
+   ADVENTURE CARDS
+========================================== */
+
+.adventure-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-top: 50px;
+}
+
+
+.adventure-card {
+    padding: 30px 20px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.4s;
+
+    animation: cardFloat 4s ease-in-out infinite;
+}
+
+
+.adventure-card:nth-child(2) {
+    animation-delay: .5s;
+}
+
+.adventure-card:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.adventure-card:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+
+.adventure-card:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.03);
+
+    background: rgba(255,255,255,0.15);
+
+}
+
+
+@keyframes cardFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+}
+
+
+.adventure-icon {
+
+    width: 60px;
+    height: 60px;
+
+    margin: auto auto 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.12);
+
+    font-size: 1.5rem;
+}
+
+
+.adventure-card h3 {
+    margin-bottom: 10px;
+}
+
+
+.adventure-card p {
+
+    font-size: 0.82rem;
+
+    line-height: 1.7;
+
+    opacity: 0.7;
+
+}
+
+
+/* ==========================================
+   NEPAL FACTS
+========================================== */
+
+.nepal-facts {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    margin-top: 70px;
+
+    padding: 35px 20px;
+
+    border-top: 1px solid rgba(255,255,255,0.15);
+
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+
+.fact {
+
+    text-align: center;
+
+    border-right:
+        1px solid rgba(255,255,255,0.15);
+}
+
+
+.fact:last-child {
+    border-right: none;
+}
+
+
+.fact strong {
+
+    display: block;
+
+    font-size: 2.3rem;
+
+    font-weight: 700;
+}
+
+
+.fact span {
+
+    font-size: 0.75rem;
+
+    opacity: 0.6;
+
+}
+
+
+/* ==========================================
+   RANDOM DESTINATION
+========================================== */
+
+.random-destination {
+
+    margin: 60px auto 0;
+
+    max-width: 600px;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.07);
+
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+
+.random-destination h3 {
+
+    font-size: 1.4rem;
+
+    margin-bottom: 8px;
+}
+
+
+.random-destination p {
+
+    opacity: 0.7;
+
+    font-size: 0.85rem;
+
+}
+
+
+#randomDestinationBtn {
+
+    margin-top: 20px;
+
+    border: none;
+
+    padding: 13px 25px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #0b3d4f;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+#randomDestinationBtn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.2);
+}
+
+
+#randomResult {
+
+    margin-top: 25px;
+
+    font-size: 1.3rem;
+
+    font-weight: 700;
+
+}
+
+
+/* ==========================================
+   FINAL CTA
+========================================== */
+
+.gallery-final {
+
+    margin-top: 80px;
+
+    padding-top: 70px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.15);
+
+}
+
+
+.gallery-final h2 {
+
+    font-size: 2.4rem;
+
+}
+
+
+.gallery-final p {
+
+    opacity: 0.7;
+
+}
+
+
+.floating-mountain {
+
+    font-size: 4rem;
+
+    animation:
+        mountainFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes mountainFloat {
+
+    0%,100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+
+}
+
+
+.explore-home-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+    padding: 14px 25px;
+
+    border-radius: 30px;
+
+    background: #e9c46a;
+
+    color: #172b36;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+
+.explore-home-btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.2);
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .adventure-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nepal-facts {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 25px;
+    }
+
+    .fact {
+        border-right: none;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .gallery-adventure {
+        padding: 70px 20px;
+    }
+
+    .adventure-content > h2 {
+        font-size: 2.2rem;
+    }
+
+    .adventure-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nepal-facts {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}

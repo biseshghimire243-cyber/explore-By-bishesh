@@ -560,3 +560,159 @@ lightbox.onclick = (e) => {
 
 // Initial Load
 display(images);
+
+
+// ==========================================
+// ANIMATED FACT COUNTERS
+// ==========================================
+
+const counters = document.querySelectorAll(".fact strong");
+
+const startCounter = (counter) => {
+
+    const target = Number(counter.dataset.target);
+
+    let current = 0;
+
+    const increment = Math.max(
+        1,
+        Math.ceil(target / 80)
+    );
+
+    const update = () => {
+
+        current += increment;
+
+        if (current >= target) {
+
+            counter.textContent =
+                target.toLocaleString();
+
+            return;
+        }
+
+        counter.textContent =
+            current.toLocaleString();
+
+        requestAnimationFrame(update);
+    };
+
+    update();
+};
+
+
+const counterObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    startCounter(entry.target);
+
+                    counterObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.5
+        }
+    );
+
+
+counters.forEach(counter => {
+
+    counterObserver.observe(counter);
+
+});
+
+
+// ==========================================
+// SURPRISE ME DESTINATION
+// ==========================================
+
+const randomButton =
+    document.getElementById(
+        "randomDestinationBtn"
+    );
+
+const randomResult =
+    document.getElementById(
+        "randomResult"
+    );
+
+
+const destinations = [
+
+    "🏔️ Everest — Solukhumbu",
+
+    "🌊 Phewa Lake — Kaski",
+
+    "🌿 Chitwan National Park — Chitwan",
+
+    "🏛️ Kathmandu Durbar Square — Kathmandu",
+
+    "🏞️ Rara Lake — Mugu",
+
+    "🏔️ Mustang — Gandaki",
+
+    "🌄 Ilam — Koshi",
+
+    "🛕 Janakpur — Dhanusha",
+
+    "🌊 Begnas Lake — Kaski",
+
+    "🌲 Shivapuri — Kathmandu",
+
+    "🏔️ Manang — Gandaki",
+
+    "🌅 Bandipur — Tanahun",
+
+    "🌿 Bardiya National Park — Bardiya",
+
+    "🏛️ Bhaktapur — Bhaktapur",
+
+    "🏔️ Langtang — Rasuwa"
+
+];
+
+
+if (randomButton) {
+
+    randomButton.addEventListener(
+        "click",
+        () => {
+
+            randomButton.disabled = true;
+
+            randomResult.style.opacity = "0";
+
+            setTimeout(() => {
+
+                const random =
+                    destinations[
+                        Math.floor(
+                            Math.random() *
+                            destinations.length
+                        )
+                    ];
+
+                randomResult.textContent =
+                    random;
+
+                randomResult.style.opacity = "1";
+
+                randomButton.disabled = false;
+
+            }, 400);
+
+        }
+    );
+
+}
