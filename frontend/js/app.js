@@ -240,3 +240,72 @@ if (mobileMenuToggle) {
 // START
 // ==========================================
 loadDistricts();
+
+
+// ==========================================
+// INTERACTIVE NEPAL MAP SEARCH
+// ==========================================
+
+const mapSearch = document.getElementById("mapDistrictSearch");
+const mapSuggestions = document.getElementById("mapSuggestions");
+
+if (mapSearch && mapSuggestions) {
+
+    mapSearch.addEventListener("input", function () {
+
+        const query = this.value.trim().toLowerCase();
+
+        mapSuggestions.innerHTML = "";
+
+        // Don't show all 77 districts initially
+        if (query === "") {
+            return;
+        }
+
+        const matches = districtsData.filter(district =>
+            district.name.toLowerCase().includes(query) ||
+            district.province.toLowerCase().includes(query)
+        );
+
+        if (matches.length === 0) {
+
+            mapSuggestions.innerHTML = `
+                <div class="map-no-result">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <br>
+                    No district found.
+                </div>
+            `;
+
+            return;
+        }
+
+        matches.slice(0, 8).forEach(district => {
+
+            const item = document.createElement("div");
+
+            item.className = "map-suggestion";
+
+            item.innerHTML = `
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    ${district.name}
+                </span>
+
+                <i class="fa-solid fa-arrow-right"></i>
+            `;
+
+            item.addEventListener("click", () => {
+
+                window.location.href =
+                    `district.html?id=${district.id}`;
+
+            });
+
+            mapSuggestions.appendChild(item);
+
+        });
+
+    });
+
+}

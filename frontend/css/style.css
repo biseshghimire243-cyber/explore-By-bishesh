@@ -412,344 +412,312 @@ footer {
 
 
 /* ==========================================
-   INTERACTIVE NEPAL MAP
+   NEPAL MAP SECTION
 ========================================== */
 
 .nepal-map-section {
     padding: 90px 6%;
     background: linear-gradient(
         135deg,
-        #f0fdf4,
-        #ffffff,
-        #ecfeff
+        #f8fbff,
+        #eef6ff
     );
+    overflow: hidden;
 }
 
-/* Heading */
-
-.map-heading {
+.nepal-map-section .section-title {
     text-align: center;
-    max-width: 750px;
-    margin: 0 auto 50px;
+    margin-bottom: 50px;
 }
 
-.map-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #16a34a;
-    font-size: 14px;
+.section-badge {
+    display: inline-block;
+    padding: 7px 15px;
+    border-radius: 30px;
+    background: #e8f1ff;
+    color: #1769aa;
+    font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     margin-bottom: 12px;
 }
 
-.map-heading h2 {
-    font-size: 40px;
-    color: #0f172a;
-    margin-bottom: 15px;
+.nepal-map-section .section-title h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
-.map-heading p {
-    color: #64748b;
-    font-size: 16px;
-    line-height: 1.8;
+.nepal-map-section .section-title p {
+    color: #666;
+    max-width: 650px;
+    margin: auto;
 }
 
-/* Main Layout */
 
-.map-wrapper {
+/* MAP CONTAINER */
+
+.map-container {
     max-width: 1200px;
     margin: auto;
 
     display: grid;
-    grid-template-columns: 1.7fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
-    gap: 30px;
-    align-items: stretch;
-}
+    gap: 60px;
 
-/* Map */
-
-.map-container {
-    position: relative;
-
-    min-height: 550px;
+    align-items: center;
 
     background: white;
 
-    border-radius: 25px;
-
-    padding: 35px;
-
-    box-shadow:
-        0 20px 50px rgba(15, 23, 42, 0.10);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-}
-
-.nepal-map-image {
-    width: 90%;
-    max-width: 650px;
-
-    opacity: 0.95;
-
-    transition: 0.4s ease;
-}
-
-.nepal-map-image:hover {
-    transform: scale(1.03);
-}
-
-/* Map Overlay */
-
-.map-overlay {
-    position: absolute;
-
-    bottom: 25px;
-    left: 25px;
-    right: 25px;
-
-    pointer-events: none;
-}
-
-.map-message {
-    width: fit-content;
-
-    background: rgba(255, 255, 255, 0.95);
-
-    padding: 15px 20px;
-
-    border-radius: 15px;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,.10);
-}
-
-.map-message i {
-    color: #16a34a;
-    font-size: 20px;
-}
-
-.map-message h3 {
-    margin: 5px 0;
-
-    color: #0f172a;
-}
-
-.map-message p {
-    margin: 0;
-
-    color: #64748b;
-
-    font-size: 13px;
-}
-
-/* Search Panel */
-
-.map-search-panel {
-    background: #ffffff;
+    padding: 45px;
 
     border-radius: 25px;
 
-    padding: 35px;
-
-    box-shadow:
-        0 20px 50px rgba(15, 23, 42, 0.10);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.08);
 }
 
-.map-search-panel h3 {
-    font-size: 23px;
 
-    color: #0f172a;
+/* LEFT TEXT */
 
-    margin-bottom: 8px;
+.map-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #222;
 }
 
-.map-search-panel h3 i {
-    color: #16a34a;
+.map-text h3 i {
+    color: #e63946;
 }
 
-.map-search-panel > p {
-    color: #64748b;
-
-    font-size: 14px;
-
-    margin-bottom: 25px;
+.map-text > p {
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 30px;
 }
 
-/* Search */
 
-.map-search {
-    position: relative;
-
-    width: 100%;
-}
-
-.map-search i {
-    position: absolute;
-
-    left: 15px;
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    color: #94a3b8;
-}
-
-.map-search input {
-    width: 100%;
-
-    box-sizing: border-box;
-
-    padding: 14px 15px 14px 43px;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 12px;
-
-    outline: none;
-
-    font-family: inherit;
-
-    font-size: 14px;
-
-    transition: .3s;
-}
-
-.map-search input:focus {
-    border-color: #16a34a;
-
-    box-shadow:
-        0 0 0 3px rgba(22, 163, 74, .10);
-}
-
-/* Suggestions */
-
-.map-suggestions {
-    margin-top: 10px;
-
-    max-height: 280px;
-
-    overflow-y: auto;
-}
-
-.map-suggestion {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 12px 14px;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    transition: .2s;
-
-    color: #334155;
-
-    font-size: 14px;
-}
-
-.map-suggestion:hover {
-    background: #f0fdf4;
-
-    color: #15803d;
-}
-
-.map-suggestion i {
-    font-size: 12px;
-}
-
-/* Statistics */
+/* STATS */
 
 .map-stats {
-    display: grid;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
 
-    grid-template-columns:
-        repeat(3, 1fr);
+.map-stat {
+    flex: 1;
+
+    padding: 18px 10px;
+
+    text-align: center;
+
+    background: #f7f9fc;
+
+    border-radius: 15px;
+}
+
+.map-stat strong {
+    display: block;
+
+    font-size: 1.6rem;
+
+    color: #1769aa;
+}
+
+.map-stat span {
+    font-size: 0.75rem;
+
+    color: #777;
+}
+
+
+/* BUTTON */
+
+.map-button {
+    display: inline-flex;
+
+    align-items: center;
 
     gap: 10px;
 
-    margin-top: 30px;
+    padding: 13px 22px;
 
-    padding-top: 25px;
+    background: #1769aa;
 
-    border-top: 1px solid #e2e8f0;
+    color: white;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.3s;
 }
 
-.map-stats div {
-    text-align: center;
+.map-button:hover {
+    transform: translateY(-3px);
+
+    background: #0d4f82;
+
+    box-shadow: 0 8px 20px rgba(23,105,170,0.25);
 }
 
-.map-stats strong {
-    display: block;
 
-    font-size: 25px;
+/* MAP */
 
-    color: #16a34a;
+.nepal-map {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
 }
 
-.map-stats span {
-    font-size: 11px;
+.nepal-map svg {
+    width: 100%;
 
-    color: #64748b;
+    max-width: 500px;
+
+    height: auto;
 }
 
-/* No Results */
 
-.map-no-result {
-    text-align: center;
+/* NEPAL SHAPE */
 
-    padding: 20px;
+.nepal-outline {
+    fill: #e8f4ea;
 
-    color: #64748b;
+    stroke: #2e8b57;
+
+    stroke-width: 7;
+
+    stroke-linejoin: round;
+
+    filter: drop-shadow(
+        0 12px 12px rgba(0,0,0,0.12)
+    );
+}
+
+
+/* SMALL MOUNTAIN DOTS */
+
+.map-dot {
+    fill: #6c9f76;
+
+    opacity: 0.7;
+}
+
+
+/* LOCATION MARKERS */
+
+.location-dot {
+    fill: #e63946;
+
+    stroke: white;
+
+    stroke-width: 5;
+
+    cursor: pointer;
+
+    animation: mapPulse 2s infinite;
+}
+
+
+/* LABELS */
+
+.map-label {
+    font-family: Poppins, sans-serif;
 
     font-size: 14px;
+
+    font-weight: 700;
+
+    fill: #222;
 }
 
-/* Responsive */
 
-@media (max-width: 900px) {
+/* PULSE */
 
-    .map-wrapper {
-        grid-template-columns: 1fr;
+@keyframes mapPulse {
+
+    0% {
+        transform: scale(1);
+        transform-origin: center;
     }
+
+    50% {
+        transform: scale(1.25);
+        transform-origin: center;
+    }
+
+    100% {
+        transform: scale(1);
+        transform-origin: center;
+    }
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 850px) {
 
     .map-container {
-        min-height: 400px;
+        grid-template-columns: 1fr;
+
+        padding: 30px;
+
+        gap: 30px;
+    }
+
+    .map-text {
+        text-align: center;
+    }
+
+    .map-stats {
+        max-width: 500px;
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+    .map-button {
+        margin-top: 5px;
     }
 
 }
 
-@media (max-width: 600px) {
+
+@media (max-width: 500px) {
 
     .nepal-map-section {
         padding: 60px 20px;
     }
 
-    .map-heading h2 {
-        font-size: 30px;
+    .nepal-map-section .section-title h2 {
+        font-size: 2rem;
     }
 
     .map-container {
-        min-height: 300px;
-
-        padding: 20px;
+        padding: 22px;
     }
 
-    .nepal-map-image {
-        width: 100%;
+    .map-stats {
+        gap: 8px;
     }
 
-    .map-search-panel {
-        padding: 25px;
+    .map-stat strong {
+        font-size: 1.3rem;
+    }
+
+    .map-stat span {
+        font-size: 0.65rem;
     }
 
 }

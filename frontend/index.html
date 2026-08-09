@@ -83,101 +83,181 @@
     </main>
 
     <!-- ==========================================
-     INTERACTIVE NEPAL MAP
+     EXPLORE NEPAL MAP
 ========================================== -->
+<section class="nepal-map-section">
 
-<section class="nepal-map-section" id="nepal-map">
-
-    <div class="map-heading">
-        <span class="map-label">
-            <i class="fa-solid fa-map-location-dot"></i>
-            EXPLORE NEPAL
-        </span>
-
-        <h2>Explore Nepal by District</h2>
-
+    <div class="section-title">
+        <span class="section-badge">🗺️ EXPLORE NEPAL</span>
+        <h2>Explore Nepal on the Map</h2>
         <p>
-            Click on a district to discover its tourist attractions,
-            culture, food, festivals and hidden destinations.
+            Discover Nepal's provinces and districts and start planning
+            your next adventure.
         </p>
     </div>
 
-    <div class="map-wrapper">
+    <div class="map-container">
 
-        <!-- Map -->
-        <div class="map-container">
-
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Nepal_map_blank.svg"
-                alt="Map of Nepal"
-                class="nepal-map-image"
-            >
-
-            <div class="map-overlay">
-
-                <div class="map-message">
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    <h3>Discover Nepal</h3>
-
-                    <p>
-                        Search for a district below and explore its
-                        tourist destinations.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- District Search -->
-        <div class="map-search-panel">
+        <div class="map-text">
 
             <h3>
-                <i class="fa-solid fa-magnifying-glass"></i>
-                Find a District
+                <i class="fa-solid fa-location-dot"></i>
+                Nepal Awaits You
             </h3>
 
             <p>
-                Search from all 77 districts of Nepal.
+                From the mighty Himalayas in the north to the peaceful
+                plains of the Terai, Nepal is filled with incredible
+                destinations, cultures and landscapes.
             </p>
-
-            <div class="map-search">
-
-                <i class="fa-solid fa-search"></i>
-
-                <input
-                    type="text"
-                    id="mapDistrictSearch"
-                    placeholder="Search district..."
-                    autocomplete="off"
-                >
-
-            </div>
-
-            <div
-                id="mapSuggestions"
-                class="map-suggestions">
-            </div>
 
             <div class="map-stats">
 
-                <div>
+                <div class="map-stat">
                     <strong>77</strong>
                     <span>Districts</span>
                 </div>
 
-                <div>
+                <div class="map-stat">
                     <strong>7</strong>
                     <span>Provinces</span>
                 </div>
 
-                <div>
-                    <strong>1</strong>
-                    <span>Beautiful Nepal</span>
+                <div class="map-stat">
+                    <strong>8</strong>
+                    <span>World Heritage Sites</span>
                 </div>
 
             </div>
+
+            <a href="#districts" class="map-button">
+                <i class="fa-solid fa-map"></i>
+                Explore Districts
+            </a>
+
+        </div>
+
+
+        <!-- MAP -->
+        <div class="nepal-map">
+
+            <svg
+                viewBox="0 0 600 700"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="Map of Nepal"
+            >
+
+                <!-- Nepal silhouette -->
+                <path
+                    class="nepal-outline"
+                    d="
+                    M95 145
+                    L125 132
+                    L160 138
+                    L195 125
+                    L230 135
+                    L265 120
+                    L300 132
+                    L335 118
+                    L370 130
+                    L405 115
+                    L440 130
+                    L475 125
+                    L510 145
+                    L525 170
+                    L510 195
+                    L530 220
+                    L515 245
+                    L535 270
+                    L515 295
+                    L530 320
+                    L505 345
+                    L515 375
+                    L490 395
+                    L500 425
+                    L470 445
+                    L475 475
+                    L440 490
+                    L430 520
+                    L395 515
+                    L375 545
+                    L340 535
+                    L315 560
+                    L280 545
+                    L250 565
+                    L220 545
+                    L185 555
+                    L165 530
+                    L130 525
+                    L120 495
+                    L90 480
+                    L100 450
+                    L75 425
+                    L90 395
+                    L70 370
+                    L90 345
+                    L75 315
+                    L100 290
+                    L85 260
+                    L105 235
+                    L90 205
+                    L110 180
+                    Z
+                    "
+                />
+
+                <!-- Decorative mountain dots -->
+                <circle cx="180" cy="190" r="7" class="map-dot"/>
+                <circle cx="245" cy="175" r="7" class="map-dot"/>
+                <circle cx="315" cy="165" r="7" class="map-dot"/>
+                <circle cx="385" cy="180" r="7" class="map-dot"/>
+                <circle cx="450" cy="200" r="7" class="map-dot"/>
+
+                <!-- Kathmandu -->
+                <circle cx="365" cy="275" r="9" class="location-dot"/>
+
+                <text
+                    x="380"
+                    y="270"
+                    class="map-label"
+                >
+                    Kathmandu
+                </text>
+
+                <!-- Pokhara -->
+                <circle cx="260" cy="330" r="9" class="location-dot"/>
+
+                <text
+                    x="275"
+                    y="325"
+                    class="map-label"
+                >
+                    Pokhara
+                </text>
+
+                <!-- Chitwan -->
+                <circle cx="335" cy="405" r="9" class="location-dot"/>
+
+                <text
+                    x="350"
+                    y="400"
+                    class="map-label"
+                >
+                    Chitwan
+                </text>
+
+                <!-- Everest -->
+                <circle cx="470" cy="175" r="9" class="location-dot"/>
+
+                <text
+                    x="485"
+                    y="170"
+                    class="map-label"
+                >
+                    Everest
+                </text>
+
+            </svg>
 
         </div>
 
